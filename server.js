@@ -22,7 +22,6 @@ afterConnection = () => {
     console.log("***********************************")
     promptUser();
 }
-
 function promptUser() {
     inquirer.prompt({
         type: 'list',
@@ -40,31 +39,47 @@ function promptUser() {
     }).then(function (answer) {
         switch (answer.action) {
             case "View All Employees":
-                // call the soon to be created viewEmployees(); function here
+                viewAllEmployees();
                 break;
             case "Add Employee":
-                // call the soon to be created addEmployees(); function here
+                addEmployee();
                 break;
             case "Update Employee Role":
-                // call the soon to be created updateEmployeeRole(); function here
+                updateEmployeeRole();
                 break;
             case "View All Roles":
-                // call the soon to be created viewAllRoles(); function here
+                viewAllRoles();
                 break;
             case "Add Role":
-                // call the soon to be created addRole(); function here
+                addRole();
                 break;
             case "View All Departments":
-                // call the soon to be created viewAllDepartments(); function here
+                viewAllDepartments();
                 break;
             case "Add Department":
-                // call the soon to be created addDepartment(); function here
+                addDepartment();
                 break;
             case "Quit":
-                // call the soon to be created quitApp(); function here
+                quitApp();
                 break;
             default:
                 break;
         }
     })
 };
+
+function viewAllEmployees() {};
+
+function addEmployee() {};
+
+function updateEmployeeRole() {};
+
+function viewAllRoles() {};
+
+function addRole() {};
+
+function viewAllDepartments() {};
+
+function addDepartment() {};
+
+function quitApp() {};
