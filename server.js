@@ -14,18 +14,24 @@ const connection = mysql.createConnection({
     database: process.env.DB_NAME
 });
 
-// creating the intro page for the console
-afterConnection = () => {
-    console.log("***********************************")
-    console.log("*                                 *")
-    console.log("*        EMPLOYEE MANAGER         *")
-    console.log("*                                 *")
-    console.log("***********************************")
-    promptUser();
-}
+connection.connect(err => {
+    if (err)
+        throw err;
+
+        // creating the intro page for the console
+            console.log("***********************************")
+            console.log("*                                 *")
+            console.log("*        EMPLOYEE MANAGER         *")
+            console.log("*                                 *")
+            console.log("***********************************")
+            promptUser();
+})
+
+
 // prompt for user to select from a list of options for the database
 function promptUser() {
     inquirer.prompt({
+        name: "action",
         type: 'list',
         message: "What would you like to do?",
         choices: [
@@ -74,10 +80,10 @@ function promptUser() {
 
 function viewAllEmployees() {
     var query = "SELECT * FROM employees";
-    connection.query(query, (err, res) => {
+    connection.query(query, function (err, res) {
         if (err)
             throw err;
-        console.table("All Employees", res);
+        console.table(res);
         promptUser();
     })
 };
@@ -91,17 +97,41 @@ function addEmployee() {
             {
                 name: "first_name",
                 type: "input",
-                message: "What is the new employee's first name?"
+                message: "What is the new employee's first name?",
+                validate: firstNameInput => {
+                    if (firstNameInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter a first name for your employee');
+                        return false;
+                    }
+                }
             },
             {
                 name: "last_name",
                 type: "input",
-                message: "What is the new employee's last name?"
+                message: "What is the new employee's last name?",
+                validate: lastNameInput => {
+                    if (lastNameInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter a last name for your employee');
+                        return false;
+                    }
+                }
             },
             {
                 name: "manager_id",
                 type: "input",
-                message: "What is the employee's manager's ID?"
+                message: "What is the employee's manager's ID?",
+                validate: managerIdInput => {
+                    if (managerIdInput) {
+                        return true;
+                    } else {
+                        console.log('Please enter a manager id for your employee');
+                        return false;
+                    }
+                }
             },
             {
                 name: "role",
@@ -109,7 +139,7 @@ function addEmployee() {
                 choices: function () {
                     var rolesArr = [];
                     for (let i = 0; i < res.length; i++) {
-                        rolesArr.push(res[i].title);
+                        rolesArr.push(res[i].job_title);
                     }
                     return rolesArr;
                 },
@@ -141,7 +171,7 @@ function addEmployee() {
     })
 };
 
-function updateEmployeeRole() {};
+function updateEmployeeRole() { };
 
 function viewAllRoles() {
     var query = "SELECT * FROM roles";
@@ -153,7 +183,7 @@ function viewAllRoles() {
     })
 };
 
-function addRole() {};
+function addRole() { };
 
 function viewAllDepartments() {
     var query = "SELECT * FROM departments";
