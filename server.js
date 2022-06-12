@@ -307,8 +307,8 @@ function addDepartment() {
         connection.query("INSERT INTO departments SET ?", { name: answer.newDepartment });
         connection.query("SELECT * FROM departments", (err, res) => {
             if (err) throw err;
-            console.table(res);
-            promptUser;
+            // console.table(res);
+            promptUser();
         })
     })
 };

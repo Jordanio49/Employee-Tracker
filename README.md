@@ -6,11 +6,15 @@
   
   ## Table of Contents
   1. [Installation Instructions](#installation-instructions)
-  2. [Usage Information](#usage-information)
-  3. [Contribution Guidelines](#contribution-guidelines)
-  4. [Test Instructions](#test-instructions)
-  5. [Licenses](#license)
+  2. [Demonstration Video](#demonstration-video)
+  3. [Usage Information](#usage-information)
+  4. [Contribution Guidelines](#contribution-guidelines)
+  5. [Test Instructions](#test-instructions)
   6. [Questions](#questions)
+
+  ## Demonstration Video
+  Here is a video to demonstrate the use of this app and all of its functions.
+  [Demonstration Video](https://drive.google.com/file/d/17cZKXb35TNhtWbVhWKAZ3-3L2jGALVB5/view)
   
   ## Installation Instructions
   To install clone the repository and open in vs code. This application requires node.js, inquirer, mysql2, console.table, and dotenv to be installed prior to use.
