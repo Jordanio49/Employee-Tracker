@@ -17,7 +17,7 @@
   [Demonstration Video](https://drive.google.com/file/d/17cZKXb35TNhtWbVhWKAZ3-3L2jGALVB5/view)
   
   ## Installation Instructions
-  To install clone the repository and open in vs code. This application requires node.js, inquirer, mysql2, console.table, and dotenv to be installed prior to use.
+  To install clone the repository and open in vs code. This application requires node.js, inquirer, mysql2, console.table, and dotenv to be installed prior to use. Next you will open the mysql terminal and source the schema.sql and seeds.sql in that order. After that you are good to go. Just type npm start to begin.
 
   ## Usage Information
   Employee Tracker can be used to keep track of, add new, and update current employees within a company.
